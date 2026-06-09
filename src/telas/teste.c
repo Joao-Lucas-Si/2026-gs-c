@@ -65,12 +65,12 @@ void teste() {
     char energiaMensagem[100];
     sprintf(energiaMensagem, "%s (%s)", textos[TESTAR_BATERIA],
             obterEnergiaTesteAtivado() ? "ativado" : "desativado");
-
-    String opcoes[4] = {textos[SAIR], textos[TESTAR_TEMPERATURA],
+    String temperaturaMensagem = stringf(100, "%s (%s)", textos[TESTAR_TEMPERATURA], obterTemperaturaTesteAtivado() ? "ativado" : "desativado");
+    String opcoes[4] = {textos[SAIR], temperaturaMensagem,
                         energiaMensagem, textos[TESTAR_COMUNICACAO]};
 
     int selecionado = criarMenuSwitch("Painel de Testes", opcoes, 3);
-      
+
     switch (selecionado) {
     case 1:
       continuar = 0;
