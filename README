@@ -14,3 +14,5 @@ ou rode este para windows:
 ```
 gcc main.c -o main.exe && main.exe
 ```
+
+o projeto se demonstrou funcionando bem em shell, fish e powershell, não tente rodar em outros tipos de terminal que poderá resultar em erro
