@@ -1,0 +1,16 @@
+# Integrantes
+
+# Estrutura do projeto
+
+# Execução
+
+para rodar o programa, entre o seguinte comando no terminal para linux:
+
+```
+gcc main.c -o main && ./main
+```
+
+ou rode este para windows:
+```
+gcc main.c -o main.exe && main.exe
+```
