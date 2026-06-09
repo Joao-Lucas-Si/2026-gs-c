@@ -156,10 +156,10 @@ void statusMenu() {
   DesenhoAscii alerta;
   int erros = 0;
 
-  if (obterTemperatura() > 80) {
+  if (obterTemperatura() >= 80) {
     erros++;
   }
-  if (obterEnergia() < 20) {
+  if (obterEnergia() <= 20) {
     erros++;
   }
   if (obterComunicacao() == 0) {
@@ -183,10 +183,10 @@ void statusMenu() {
 
   snprintf(data[0], t, "energia:");
   snprintf(data[1], t, "%d/100", obterEnergia());
-  snprintf(data[2], t, "%s", obterEnergia() < 20 ? "economia de energia" : "");
+  snprintf(data[2], t, "%s", obterEnergia() <= 20 ? "economia de energia" : "");
   snprintf(data[4], t, "temperatura");
   snprintf(data[5], t, "%d/100", obterTemperatura());
-  snprintf(data[6], t, "%s", obterTemperatura() > 80 ? "superaquecimento" : "");
+  snprintf(data[6], t, "%s", obterTemperatura() >= 80 ? "superaquecimento" : "");
   snprintf(data[8], t, "comunicacao: ");
   snprintf(data[9], t, "%s", obterComunicacaoStr());
   snprintf(data[10], t, "%s", obterComunicacao() == NULO ? "Falha" : "");

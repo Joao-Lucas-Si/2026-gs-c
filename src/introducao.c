@@ -53,7 +53,7 @@ void mostrarIntegrantes() {
   // for (int i = 0; i < integranteLogo.linhas; i++) {
   //   printf("%c\n", integranteLogo.conteudo[i][integranteLogo.tamanho - 1]);
   // }
-  if (!(obterEnergiaTesteAtivado() && obterEnergia() < 20))
+  if (!(obterEnergiaTesteAtivado() && obterEnergia() <= 20))
     ativarDepois(esperarSegundo);
   ativarAntes(colorirIntegrantes);
   centralizarVerticalTopo(12);
@@ -68,11 +68,12 @@ void mostrarIntegrantes() {
 
 void logos() {
   obterLargura();
-  ativarAntes(colorirTrem);
-
+  
   String trem = "recursos/ascii/logos/logo_principal.txt";
-    limpar();
-  if (!(obterEnergiaTesteAtivado() && obterEnergia() < 20)) {
+  limpar();
+  resetarConfig();
+  ativarAntes(colorirTrem);
+  if (!(obterEnergiaTesteAtivado() && obterEnergia() <= 20)) {
     animarTrem(trem);
   } else {
     ArquivoResultado a = lerLinhaALinha(trem);
