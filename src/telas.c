@@ -27,7 +27,7 @@ void insercaoComunicacao() {
   String *tabela[3] = {nulo, instavel, estavel};
   int i[3] = {13, 13, 13};
   int selecionado = criarMenuSwitchMultilinha("Inserir Comunicação", tabela,
-                                              len(tabela), i, 3);
+                                              len(tabela), i, obterLargura() < 170 ? 1 : 3);
 
   mudarComunicacao(selecionado - 1);
   Registro registro = {
@@ -207,7 +207,7 @@ void statusMenu() {
   } else if (erros >= 1) {
     ativarAntes(colorirAtencao);
   }
-  criarTabelaMultilinha(tabela, len(tabela), tamanho, 2);
+  criarTabelaMultilinha(tabela, len(tabela), tamanho, obterLargura() < 180 ? 1 : 2);
   resetarConfig();
   pausar();
   limpar();

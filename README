@@ -16,4 +16,4 @@ gcc main.c -o main.exe
 main.exe
 ```
 
-o projeto se demonstrou funcionando bem em shell, fish e powershell, não tente rodar em outros tipos de terminal que poderá resultar em erro
+o projeto se demonstrou funcionando bem em shell, fish e powershell, não tente rodar em outros tipos de terminal que poderá resultar em erro, além disso, tenha em mente que dependendo do tamanho do terminal o código pode não funcionar, mesmo tendo código de proteção contra isso, aumenter o máximo que puder
