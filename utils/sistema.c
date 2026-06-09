@@ -49,7 +49,7 @@ int obterAltura() {
 void esperar(int microSegundos) { usleep(microSegundos * 1000); }
 
 void pausar() {
-
+  printf("digite enter para proseguir\n");
   setbuf(stdin, NULL);
   getchar();
 }

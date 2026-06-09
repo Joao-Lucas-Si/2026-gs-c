@@ -1,13 +1,13 @@
 #include "../../utils/utils.h"
 #include "../data.h"
+#include "../fun.h"
 #include "../idioma.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../fun.h"
 
 void testeComunicacao() {
-  String* textos = obterTextos();
+  String *textos = obterTextos();
   ArquivoResultado comunicacaoAscii =
       lerLinhaALinha("recursos/ascii/comunicacao.txt");
   ArquivoResultado comunicacaoInstavelAscii =
@@ -29,8 +29,8 @@ void testeComunicacao() {
     break;
   }
   char mensagem[] =
-      "ola, ola, testando, testando, há um asteroide a caminho, é necessário "
-      "desviar para garantir que ele não colida com a nave";
+      "ola, ola, testando, testando, ha um asteroide a caminho, e necessario "
+      "desviar para garantir que ele nao colida com a nave";
   StringParte partes = dividir(mensagem, " ");
   StringEmLinhas linhas = montarParagrafos(partes, 2);
 
@@ -50,29 +50,33 @@ void testeComunicacao() {
                         terra.linhas};
   enum Cor primario = obterPrimario();
   ativarEfeitos((int[]){aplicarEfeitoCor(FUNDO, primario)});
-  centralizar("Testando comunicação", ' ');
+  centralizar("Testando comunicacao", ' ');
   desativarEfeitos();
   criarTabelaMultilinha(tabela, len(tabela), i, 2);
+
   pausar();
 }
 
 void teste() {
-  String* textos = obterTextos();
+  String *textos = obterTextos();
   int continuar = 1;
   while (continuar) {
-
+    int obterTemperaturaTesteAtivado();
     char energiaMensagem[100];
     sprintf(energiaMensagem, "%s (%s)", textos[TESTAR_BATERIA],
             obterEnergiaTesteAtivado() ? "ativado" : "desativado");
 
-    String opcoes[4] = {textos[SAIR], textos[TESTAR_TEMPERATURA], energiaMensagem,
-                        textos[TESTAR_COMUNICACAO]};
+    String opcoes[4] = {textos[SAIR], textos[TESTAR_TEMPERATURA],
+                        energiaMensagem, textos[TESTAR_COMUNICACAO]};
 
     int selecionado = criarMenuSwitch("Painel de Testes", opcoes, 3);
-
+      
     switch (selecionado) {
     case 1:
       continuar = 0;
+      break;
+    case 2:
+      mudarTemperaturaTesteAtivado(!obterTemperaturaTesteAtivado());
       break;
     case 3:
       mudarEnergiaTesteAtivado(!obterEnergiaTesteAtivado());
@@ -81,5 +85,6 @@ void teste() {
       testeComunicacao();
       break;
     }
+    limpar();
   }
 }

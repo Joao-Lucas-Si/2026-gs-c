@@ -16,6 +16,7 @@
 #include "utils/numerico.c"
 #include "utils/print.c"
 #include "utils/sistema.c"
+#include "utils/sistema.h"
 #include "utils/string.c"
 #include "utils/tui/animacao.c"
 #include "utils/tui/cor.c"
@@ -29,11 +30,11 @@
 #define DEV 1
 
 int main() {
- 
+  limpar();
+  configurarCores(ROXO, AZUL);
   iniciarFontes();
   iniciarIdiomas();
   iniciar();
-  configurarCores(ROXO, AZUL);
   
   if (!DEV) {
     logos();

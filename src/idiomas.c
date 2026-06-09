@@ -41,8 +41,8 @@ Lingua portugues() {
     textos[6] = "Painel de Controle";
     textos[7] = "Sair";
     textos[8] = "Inserir Energia";
-    textos[9] = "Inserir Comunicacao";
-    textos[10] = "Inserir Temperatura";
+    textos[9] = "Inserir Temperatura";
+    textos[10] = "Inserir Comunicacao";
     textos[11] = "SEGURO";
     textos[12] = "ATENCAO";
     textos[13] = "CRITICO";

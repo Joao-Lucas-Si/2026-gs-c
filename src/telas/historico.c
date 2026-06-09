@@ -4,9 +4,10 @@
 
 void verHistorico() {
   Historico historico = obterHistorico();
-
+ int f[1] = {aplicarEfeitoCor(FUNDO,obterPrimario())};
+ ativarEfeitos(f);
   centralizar("Historico", ' ');
-
+  desativarEfeitos();
   for (int i = historico.tamanho - 1; i >= 0; i--) {
     Registro registro = historico.registros[i];
     String data =

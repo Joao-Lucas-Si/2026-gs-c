@@ -197,7 +197,7 @@ void statusMenu() {
   };
   int tamanho[2] = {alerta.linhas, len(data)};
 
-  int f[1] = {aplicarEfeitoCor(FUNDO, ROXO)};
+  int f[1] = {aplicarEfeitoCor(FUNDO,obterPrimario())};
   ativarEfeitos(f);
   centralizar("Status", ' ');
   desativarEfeitos();
@@ -216,21 +216,6 @@ void statusMenu() {
   adicionarRegistro(registro);
 }
 
-void estilizarAstronauta() {
-  String nome = obterNome();
-  StringParte cordenadas = dividir(nome, ",");
-  enum Cor primario = obterPrimario();
-  if (cordenadas.tamanho > 1) {
-    int y = stringParaInteiro(cordenadas.palavras[0]);
-    int x = stringParaInteiro(cordenadas.palavras[1]);
-    if ((y > 1 && y < 12) || (y > 12 && y < 23)) {
-      int efeitos[] = {aplicarEfeitoCor(TEXTO_CLARO, primario)};
-      aplicarEfeitos(efeitos, len(efeitos));
-    } else {
-      aplicarEfeitos(NULL, 0);
-    }
-  }
-}
 
 
 void principal() {

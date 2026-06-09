@@ -8,19 +8,21 @@ void esperarSegundo() { esperar(1); }
 void colorirTrem() {
   char *nome = obterNome();
   char *conteudo = obterConteudo();
+  enum Cor primario = obterPrimario();
+  enum Cor secundario = obterSecundario();
   if (strcmp(conteudo, "+") == 0) {
-    int efeitos[1] = {aplicarEfeitoCor(TEXTO_CLARO, AZUL)};
+    int efeitos[1] = {aplicarEfeitoCor(TEXTO_CLARO, secundario)};
     aplicarEfeitos(efeitos, 1);
   } else if ((strcmp(nome, "trem-5") == 0 &&
               (strcmp(conteudo, "0") == 0 || strcmp(conteudo, "o") == 0))) {
-    int efeitos[] = {aplicarEfeitoCor(TEXTO_CLARO, AZUL)};
+    int efeitos[] = {aplicarEfeitoCor(TEXTO_CLARO, secundario)};
     aplicarEfeitos(efeitos, 1);
   } else if ((strcmp(conteudo, "O") == 0 || strcmp(conteudo, "o") == 0) &&
              (strcmp(nome, "trem-1") == 0 || strcmp(nome, "trem-2") == 0)) {
     int efeitos[] = {aplicarEfeitoCor(TEXTO_CLARO, BRANCO)};
     aplicarEfeitos(efeitos, 1);
   } else {
-    int efeitosa[] = {aplicarEfeitoCor(TEXTO_CLARO, ROXO)};
+    int efeitosa[] = {aplicarEfeitoCor(TEXTO_CLARO, primario)};
     aplicarEfeitos(efeitosa, 1);
   }
 }

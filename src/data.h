@@ -15,6 +15,9 @@ int obterEnergia();
 int obterTemperatura();
 
 int obterEnergiaTesteAtivado();
+int obterTemperaturaTesteAtivado();
+
+void mudarTemperaturaTesteAtivado(int temperaturaTesteAtivado);
 
 String obterComunicacaoStr();
 
@@ -58,6 +61,7 @@ typedef struct DataStruct {
   ComunicacaoStatus comunicacao;
   int energia;
   int energiaTesteAtivado;
+  int temperaturaTesteAtivado;
   Registro *registros;
   int registroTamanho;
 } Data;

@@ -1,8 +1,8 @@
 #include "data.h"
 #include "../utils/utils.h"
+#include "idioma.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "idioma.h"
 
 Data data;
 
@@ -22,8 +22,11 @@ void iniciar() {
     data.energiaTesteAtivado = 0;
   }
 
-  if (data.energiaTesteAtivado && data.energia < 20) {
+  if (data.energiaTesteAtivado && data.energia <= 20) {
     desativarCores();
+  }
+  if (data.temperaturaTesteAtivado && data.temperatura>=80) {
+    configurarCores(VERMELHO, LARANJA);
   }
 }
 
@@ -48,9 +51,10 @@ String obterComunicacaoStr() {
   }
 }
 
-void salvar() { 
-  escreverArquivoUnico(&data, Data, caminhoBanco); 
-  escreverArquivoTamanho(data.registros, data.registroTamanho, Registro, caminhoBancoHistorico);
+void salvar() {
+  escreverArquivoUnico(&data, Data, caminhoBanco);
+  escreverArquivoTamanho(data.registros, data.registroTamanho, Registro,
+                         caminhoBancoHistorico);
 }
 
 void mudarComunicacao(ComunicacaoStatus comunicacao) {
@@ -61,7 +65,7 @@ void mudarComunicacao(ComunicacaoStatus comunicacao) {
 void mudarEnergia(int energia) {
   data.energia = energia;
 
-  if (obterEnergiaTesteAtivado() && energia < 20) {
+  if (obterEnergiaTesteAtivado() && energia <= 20) {
     desativarCores();
   } else {
     ativarCores();
@@ -72,13 +76,18 @@ void mudarEnergia(int energia) {
 
 void mudarTemperatura(int temperatura) {
   data.temperatura = temperatura;
+  if (data.temperatura >= 80) {
+    configurarCores(VERMELHO, LARANJA);
+  } else {
+    configurarCores(ROXO, AZUL);
+  }
   salvar();
 }
 
 void mudarEnergiaTesteAtivado(int energiaTesteAtivado) {
   data.energiaTesteAtivado = energiaTesteAtivado;
 
-  if (energiaTesteAtivado && obterEnergia() < 20) {
+  if (energiaTesteAtivado && obterEnergia() <= 20) {
     desativarCores();
   } else {
     ativarCores();
@@ -87,16 +96,30 @@ void mudarEnergiaTesteAtivado(int energiaTesteAtivado) {
   salvar();
 }
 
+int obterTemperaturaTesteAtivado() {
+  return data.temperaturaTesteAtivado;
+}
 
+void mudarTemperaturaTesteAtivado(int temperaturaTesteAtivado) {
+  data.temperaturaTesteAtivado = temperaturaTesteAtivado;
+
+  if (temperaturaTesteAtivado && data.temperatura >= 80) {
+    
+      configurarCores(VERMELHO, LARANJA);
+    
+  } else {
+    configurarCores(ROXO, AZUL);
+  }
+}
 
 void adicionarRegistro(Registro registro) {
   time_t t = time(NULL);
   struct tm tm = *localtime(&t);
   registro.data = tm;
-  data.registros =
-      data.registroTamanho == 0
-          ? malloc(sizeof(Registro))
-          : realloc(data.registros, (data.registroTamanho + 1) * sizeof(Registro));
+  data.registros = data.registroTamanho == 0
+                       ? malloc(sizeof(Registro))
+                       : realloc(data.registros,
+                                 (data.registroTamanho + 1) * sizeof(Registro));
 
   data.registros[data.registroTamanho] = registro;
   data.registroTamanho++;
@@ -104,7 +127,8 @@ void adicionarRegistro(Registro registro) {
 }
 
 Historico obterHistorico() {
-  Historico historico = {.tamanho = data.registroTamanho, .registros = data.registros};
+  Historico historico = {.tamanho = data.registroTamanho,
+                         .registros = data.registros};
 
   return historico;
 }
