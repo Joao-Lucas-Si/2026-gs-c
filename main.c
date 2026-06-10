@@ -30,15 +30,19 @@
 #define DEV 1
 
 int main() {
+  if (eWindows) {
+    setbuf(stdout, NULL);
+  }
   limpar();
   configurarCores(ROXO, AZUL);
   iniciarFontes();
   iniciarIdiomas();
   iniciar();
   
-  if (!DEV) {
-    logos();
-  }
+  // if (!DEV) {
+  //   logos();
+  // }
+  //printf("%d", obterLargura());
   principal();
 
   return 0;

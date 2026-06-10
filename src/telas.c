@@ -26,7 +26,7 @@ void insercaoComunicacao() {
   copiarEm(nulo, comunicacaoNulaAscii.conteudo, 1, comunicacaoNulaAscii.linhas);
   String *tabela[3] = {nulo, instavel, estavel};
   int i[3] = {13, 13, 13};
-  int selecionado = criarMenuSwitchMultilinha("Inserir Comunicação", tabela,
+  int selecionado = criarMenuSwitchMultilinha("Inserir Comunicacao", tabela,
                                               len(tabela), i, obterLargura() < 170 ? 1 : 3);
 
   mudarComunicacao(selecionado - 1);
@@ -82,7 +82,7 @@ void inserirMenu() {
     int temperaturaValor = 0;
     int energiaValor = 0;
     int efeitos[1] = {aplicarEfeitoCor(TEXTO, primario)};
-    int selecionado = criarMenuSwitchMultilinha("Inserção de dados", opcoes,
+    int selecionado = criarMenuSwitchMultilinha("Insercao de dados", opcoes,
                                                 len(opcoes), i, 2);
     switch (selecionado) {
     case 1:

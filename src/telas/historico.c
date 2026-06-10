@@ -18,7 +18,7 @@ void verHistorico() {
     case INSERCAO_COMUNICACAO:
     case INSERCAO_ENERGIA:
     case INSERCAO_TEMPERATURA:
-      printf("acao: %s, valor: %d data: %s\n", obterNomeRegistro(registro.tipo),
+      printf("acao: %s, valor: %d, data: %s\n", obterNomeRegistro(registro.tipo),
              registro.valor, data);
       break;
     default:
@@ -27,4 +27,5 @@ void verHistorico() {
     }
   }
   pausar();
+  limpar();
 }

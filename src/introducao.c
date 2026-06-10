@@ -42,8 +42,8 @@ void colorirIntegrantes() {
 }
 
 void mostrarIntegrantes() {
-  String integrantes[3] = {"João Lucas Silva Lopes", "Alan",
-                           "João Pedro Evangelista"};
+  String integrantes[3] = {"Joao Lucas Silva Lopes", "Alan Otalvaro",
+                           "Jaão Pedro Evangelista"};
   // ArquivoResultado integranteLogo =
   // lerLinhaALinha("recursos/integrantes.txt");
   String integrantesAscii = "Integrantes";
@@ -62,7 +62,10 @@ void mostrarIntegrantes() {
   desativarEfeitos();
   resetarConfig();
   esperarSegundo();
-  ativarDepois(esperarSegundo);
+  if (!eWindows) {
+
+    ativarDepois(esperarSegundo);
+  }
   criar_tabela(integrantes, 3);
 }
 
@@ -87,6 +90,7 @@ void logos() {
   limpar();
   resetarConfig();
   mostrarIntegrantes();
+  resetarConfig();
   esperar(1 * 1000);
   limpar();
 }

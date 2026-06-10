@@ -25,13 +25,6 @@ enum Efeito {
   PISCAR_LENTO = 5
 };
 
-typedef enum TypesEnum {
-    INT,
-    FLOAT,
-    CHAR,
-    STRING,
-    
-} Type;
 
 typedef union AnyUnion Any;
 
@@ -50,11 +43,6 @@ typedef union AnyUnion {
     AnyArray array;
 } Any;
 
-
-typedef struct AnyVarStruct {
-    Type type;
-    Any value;
-} AnyVar;
 
 #define tipoAlvo(any, c) any.#c
 

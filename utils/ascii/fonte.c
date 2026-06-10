@@ -29,7 +29,7 @@ FonteAscii obterFonte(String nome) {
       return fontes[i];
     }
   }
-  mostrarErro("Fonte não suportada");
+  mostrarErro("Fonte nao suportada");
   exit(1);
 }
 
@@ -108,7 +108,7 @@ DesenhoAscii desenharAscii(String fonteNome, String conteudo, int tamanho) {
     }
    
     if (alvo == -1) {
-      mostrarErro(stringf(50, "caractere não encontrado: %c", caractere));
+      mostrarErro(stringf(50, "caractere nao encontrado: %c", caractere));
       exit(1);
     }
     if (maximo == 0) {

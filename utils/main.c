@@ -123,12 +123,7 @@
 
 //   ArquivoResultado membros = lerLinhaALinha("ascii/bigmoney_integrantes.txt");
 
-//   struct Opcao opcoes[6] = {{.texto = "opção", .codigo = oi},
-//                             {.texto = "opção"},
-//                             {.texto = "opção"},
-//                             {.texto = "opção"},
-//                             {.texto = "opção"},
-//                             {.texto = "opção"}};
+
 //   char membrosNomes[][100] = {"João Lucas", "Alan", "João Evangelista"};
 //   int *tamanhos;
 //   ativarAntes(rodasAzuis);

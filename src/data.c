@@ -76,7 +76,7 @@ void mudarEnergia(int energia) {
 
 void mudarTemperatura(int temperatura) {
   data.temperatura = temperatura;
-  if (data.temperatura >= 80) {
+  if (data.temperaturaTesteAtivado && data.temperatura >= 80) {
     configurarCores(VERMELHO, LARANJA);
   } else {
     configurarCores(ROXO, AZUL);
