@@ -23,7 +23,7 @@
       columns = csbi.srWindow.Right - csbi.srWindow.Left + 1;
       rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
   
-      return columns;
+      return rows;
   }
 #else
  #include <sys/ioctl.h>
